@@ -75,26 +75,32 @@ def simple_dice(dice_size, dice_num):
 
 @client.event
 async def on_message(message):
-    if message.author == client.user:
+    if message.author.bot:
         return
 
-    if message.content.startswith('dice'):
-        info = parse('dice {}d{}', message.content)
-        if info:
-            if info[1].isdecimal() and info[0].isdecimal():
-                dice_num = int(info[0])
-                dice_size = int(info[1])
-                #key = info[2]
-                # メッセージを書きます
-                #m = message.author.name + ' '
-                # if key == '一時的狂気':
-                #     m = temp_madness()
-                # elif key == '不定の狂気':
-                #     m = ind_madness()
-                #if key == 'dice':
-                m = simple_dice(dice_size, dice_num)
-                msg = 'dice: ' + str(np.sum(m)) + ' = ' + str(m)
-                await message.channel.send(msg)
+    if message.content == '/dice':
+        m = simple_dice(10, 1)
+        msg = 'dice: ' + str(np.sum(m)) + ' = ' + str(m)
+        await message.channel.send(msg)
+
+
+#     if message.content.startswith('dice'):
+#         info = parse('dice {}d{}', message.content)
+#         if info:
+#             if info[1].isdecimal() and info[0].isdecimal():
+#                 dice_num = int(info[0])
+#                 dice_size = int(info[1])
+#                 #key = info[2]
+#                 # メッセージを書きます
+#                 #m = message.author.name + ' '
+#                 # if key == '一時的狂気':
+#                 #     m = temp_madness()
+#                 # elif key == '不定の狂気':
+#                 #     m = ind_madness()
+#                 #if key == 'dice':
+#                 m = simple_dice(dice_size, dice_num)
+#                 msg = 'dice: ' + str(np.sum(m)) + ' = ' + str(m)
+#                 await message.channel.send(msg)
 
 
 # メッセージ受信時に動作する処理
