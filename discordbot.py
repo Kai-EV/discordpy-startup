@@ -35,7 +35,7 @@ async def on_message(message):
 @client.event
 async def on_message(message):
     if message.content.startswith('dice'):
-          await message.channnel.send('dice')
+          await client.send_message(message.channel, 'bot')
           
 
 @bot.event
