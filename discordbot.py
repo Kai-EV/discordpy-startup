@@ -25,6 +25,13 @@ def simple_dice(dice_size, dice_num):
 
 @client.event
 async def on_message(message):
+    if message.content.startswith("hello"):#おはように反応
+        if client.user != message.author:#自身には反応しない
+            text = message.author.mention+"さんおはよう"#message.author.mentionでメンション
+            await client.send_message(message.channel, text)#チャットされたチャンネルでチャットする
+
+@client.event
+async def on_message(message):
     if message.content.startswith('dice'):
           await message.channnel.send('dice')
           
