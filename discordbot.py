@@ -10,40 +10,6 @@ bot = commands.Bot(command_prefix='/')
 token = os.environ['DISCORD_BOT_TOKEN']
           
 
-# def dice(dice_size):
-#     num = np.random.randint(1, int(dice_size))
-#     return num
-
-# def simple_dice(dice_size, dice_num):
-#     dice_val = np.array([], dtype=np.int64)
-#     for i in range(dice_num):
-#         dice_val = np.append(dice_val, dice(dice_size))
-#     #msg = 'dice: ' + str(np.sum(dice_val)) + ' = ' + str(dice_val)
-#     m = dice_val
-#     return m
-
-
-# @client.event
-# async def on_ready():
-#     print('Logged in')
-#     print('-----')
-          
-
-# @client.event
-# async def on_message(message):
-#     # メッセージ送信者がBotだった場合は無視する
-#     if message.author.bot:
-#         return
-#     # 「/neko」と発言したら「にゃーん」が返る処理
-#     if message.content == 'neko':
-#         await message.channel.send('にゃーん')
-
-# @client.event
-# async def on_message(message):
-#     if message.content.startswith('dice'):
-#           await client.send_message(message.channel, 'bot')
-          
-
 # @bot.event
 # async def on_command_error(ctx, error):
 #     orig_error = getattr(error, "original", error)
@@ -60,6 +26,7 @@ token = os.environ['DISCORD_BOT_TOKEN']
 # async def neko(ctx):
 #     await ctx.send('nyan')
 
+
 def dice(dice_size):
     num = np.random.randint(1, int(dice_size))
     return num
@@ -71,10 +38,6 @@ def simple_dice(dice_size, dice_num):
     #msg = 'dice: ' + str(np.sum(dice_val)) + ' = ' + str(dice_val)
     m = dice_val
     return m
-
-
-
-
 
 
 # メッセージ受信時に動作する処理
@@ -104,12 +67,7 @@ async def on_message(message):
                 m = simple_dice(dice_size, dice_num)
                 msg = 'dice: ' + str(np.sum(m)) + ' = ' + str(m)
                 await message.channel.send(msg)    
-#     if message.content == '/dice':
-#         await message.channel.send('dice')
-#         m = simple_dice(10, 1)
-#         await message.channel.send(m)
-#         msg = 'dice: ' + str(np.sum(m)) + ' = ' + str(m)
-#         await message.channel.send(msg)
+
 
 client.run(token)
 #bot.run(token)
