@@ -62,4 +62,4 @@ async def neko(ctx):
 
 
 client.run(token)
-bot.run(token)
+#bot.run(token)
