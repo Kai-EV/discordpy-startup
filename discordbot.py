@@ -1,9 +1,11 @@
 from discord.ext import commands
+import discord
 import numpy as np
 import os
 import traceback
 from parse import parse
 
+client = discord.Client()
 bot = commands.Bot(command_prefix='/')
 token = os.environ['DISCORD_BOT_TOKEN']
           
@@ -21,9 +23,9 @@ def simple_dice(dice_size, dice_num):
     return m
 
 
-@bot.command()
-async def dice(ctx):
-    await ctx.send('dice')
+@client.event
+async def on_message(message):
+    await message.send('dice')
           
 
 @bot.event
