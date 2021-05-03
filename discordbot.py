@@ -21,6 +21,9 @@ def simple_dice(dice_size, dice_num):
     return m
 
 
+@bot.command()
+async def dice(ctx):
+    await ctx.send('dice')
           
 
 @bot.event
