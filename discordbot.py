@@ -1,8 +1,8 @@
 from discord.ext import commands
-#import numpy as np
+import numpy as np
 import os
 import traceback
-#from parse import parse
+from parse import parse
 
 bot = commands.Bot(command_prefix='/')
 token = os.environ['DISCORD_BOT_TOKEN']
