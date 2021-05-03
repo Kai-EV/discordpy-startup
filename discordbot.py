@@ -25,10 +25,12 @@ def simple_dice(dice_size, dice_num):
 
 @client.event
 async def on_message(message):
-    if message.content.startswith("hello"):#おはように反応
-        if client.user != message.author:#自身には反応しない
-            text = message.author.mention+"さんおはよう"#message.author.mentionでメンション
-            await client.send_message(message.channel, text)#チャットされたチャンネルでチャットする
+    # メッセージ送信者がBotだった場合は無視する
+    if message.author.bot:
+        return
+    # 「/neko」と発言したら「にゃーん」が返る処理
+    if message.content == 'neko':
+        await message.channel.send('にゃーん')
 
 @client.event
 async def on_message(message):
