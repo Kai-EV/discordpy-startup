@@ -79,7 +79,9 @@ async def on_message(message):
         return
 
     if message.content == '/dice':
+        await message.channel.send('dice')
         m = simple_dice(10, 1)
+        await message.channel.send(m)
         msg = 'dice: ' + str(np.sum(m)) + ' = ' + str(m)
         await message.channel.send(msg)
 
