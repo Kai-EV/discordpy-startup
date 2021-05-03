@@ -73,17 +73,17 @@ def simple_dice(dice_size, dice_num):
     return m
 
 
-@client.event
-async def on_message(message):
-    if message.author.bot:
-        return
+# @client.event
+# async def on_message(message):
+#     if message.author.bot:
+#         return
 
-    if message.content == '/dice':
-        await message.channel.send('dice')
-        m = simple_dice(10, 1)
-        await message.channel.send(m)
-        msg = 'dice: ' + str(np.sum(m)) + ' = ' + str(m)
-        await message.channel.send(msg)
+#     if message.content == '/dice':
+#         await message.channel.send('dice')
+#         m = simple_dice(10, 1)
+#         await message.channel.send(m)
+#         msg = 'dice: ' + str(np.sum(m)) + ' = ' + str(m)
+#         await message.channel.send(msg)
 
 
 #     if message.content.startswith('dice'):
@@ -114,6 +114,13 @@ async def on_message(message):
     # 「/neko」と発言したら「にゃーん」が返る処理
     if message.content == '/neko':
         await message.channel.send('にゃーん')
+
+    if message.content == '/dice':
+        await message.channel.send('dice')
+        m = simple_dice(10, 1)
+        await message.channel.send(m)
+        msg = 'dice: ' + str(np.sum(m)) + ' = ' + str(m)
+        await message.channel.send(msg)
 
 client.run(token)
 #bot.run(token)
