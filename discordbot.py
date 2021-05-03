@@ -26,7 +26,7 @@ def simple_dice(dice_size, dice_num):
 @client.event
 async def on_message(message):
     if message.content.startswith('dice'):
-          await message.send('dice')
+          await message.channnel.send('dice')
           
 
 @bot.event
