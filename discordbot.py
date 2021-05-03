@@ -1,5 +1,5 @@
 from discord.ext import commands
-import numpy as np
+#import numpy as np
 import os
 import traceback
 #from parse import parse
