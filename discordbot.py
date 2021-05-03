@@ -61,4 +61,5 @@ async def neko(ctx):
     await ctx.send('nyan')
 
 
+client.run(token)
 bot.run(token)
