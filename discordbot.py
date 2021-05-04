@@ -77,7 +77,16 @@ async def on_message(message):
                 elif (int(info[0])/2) < int(m) <= int(info[0]):
                     msg = 'dice: ' + str(np.sum(m)) + ' = ' + str(m) + ' <= ' + str(info[0]) + ' Succese!'
                 elif int(m) > int(info[0]):
-                    msg = 'dice: ' + str(np.sum(m)) + ' = ' + str(m) + ' > ' + str(info[0]) + ' Failure.' 
+                    if int(info[0]) >= 50:
+                        if int(info[0]) < int(m) <= 99:
+                            msg = 'dice: ' + str(np.sum(m)) + ' = ' + str(m) + ' > ' + str(info[0]) + ' Failure.' 
+                        elif int(m) == 100:
+                            msg = 'dice: ' + str(np.sum(m)) + ' = ' + str(m) + ' > ' + str(info[0]) + ' Fanble...'
+                    elif int(info[0]) < 50:
+                        if int(info[0]) < int(m) <= 95:
+                            msg = 'dice: ' + str(np.sum(m)) + ' = ' + str(m) + ' > ' + str(info[0]) + ' Failure.' 
+                        elif 96 <= int(m) <= 100:
+                            msg = 'dice: ' + str(np.sum(m)) + ' = ' + str(m) + ' > ' + str(info[0]) + ' Fanble...'
                 #msg = 'dice: ' + str(np.sum(m)) + ' = ' + str(m) + ' <= ' + str(info[0]) + ' Succese!'
                 await message.channel.send(msg)
                     
