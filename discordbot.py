@@ -61,10 +61,11 @@ async def on_message(message):
                 await message.channel.send(msg)
     
     if message.content.startswith('CCB'):
-#         if message.content == 'CCB':
-#             m = simple_dice(100, 1)
-#             msg = 'dice: ' + str(np.sum(m)) + ' = ' + str(m)
-#             await message.channel.send(msg)
+        if message.content == 'CCB':
+            m = simple_dice(100, 1)
+            msg = 'dice: ' + str(np.sum(m)) + ' = ' + str(m)
+            await message.channel.send(msg)
+            break
         info = parse('CCB<={}', message.content)
         if info:
             if info[0].isdecimal():
