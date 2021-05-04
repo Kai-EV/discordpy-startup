@@ -65,15 +65,15 @@ async def on_message(message):
             m = simple_dice(100, 1)
             msg = 'dice: ' + str(np.sum(m)) + ' = ' + str(m)
             await message.channel.send(msg)
-        if info = parse('CCB <= {}', message.content) or info = parse('ccb <= {}', message.content):
+        if info = parse('CCB <= {}', message.content):
             if info[0].isdecimal():
                 m = simple_dice(100, 1)
                 msg = 'dice: ' + str(np.sum(m)) + ' = ' + str(m)
-                if m <= int(info[0]):
-                    msg2 = 'Succese!'
-                elif:
-                    msg2 = 'Failure.'
-                await message.channel.send(msg, msg2)
+#                 if m <= int(info[0]):
+#                     msg2 = 'Succese!'
+#                 elif:
+#                     msg2 = 'Failure.'
+                await message.channel.send(msg)
 
 
 client.run(token)
