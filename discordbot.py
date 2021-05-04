@@ -56,17 +56,14 @@ async def on_message(message):
             if info[1].isdecimal() and info[0].isdecimal():
                 dice_num = int(info[0])
                 dice_size = int(info[1])
-                #key = info[2]
-                # メッセージを書きます
-                #m = message.author.name + ' '
-                # if key == '一時的狂気':
-                #     m = temp_madness()
-                # elif key == '不定の狂気':
-                #     m = ind_madness()
-                #if key == 'dice':
                 m = simple_dice(dice_size, dice_num)
                 msg = 'dice: ' + str(np.sum(m)) + ' = ' + str(m)
-                await message.channel.send(msg)    
+                await message.channel.send(msg)
+    
+    if message.content = 'CCB' or message.content = 'ccb':
+          m = simple_dice(dice_size, dice_num)
+          msg = 'dice: ' + str(np.sum(m)) + ' = ' + str(m)
+          await message.channel.send(msg)
 
 
 client.run(token)
