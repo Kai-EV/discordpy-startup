@@ -73,6 +73,18 @@ async def on_message(message):
                 if int(m) <= int(info[0]):
                     msg = 'dice: ' + str(np.sum(m)) + ' = ' + str(m) + ' <= ' + str(info[0]) + ' Succese!'
                 elif int(m) > int(info[0]):
+                    msg = 'dice: ' + str(np.sum(m)) + ' = ' + str(m) + ' > ' + str(info[0]) + ' Failure.' 
+                #msg = 'dice: ' + str(np.sum(m)) + ' = ' + str(m) + ' <= ' + str(info[0]) + ' Succese!'
+                await message.channel.send(msg)
+                    
+    if message.content.startswith('CCB>'):     
+        info = parse('CCB>{}', message.content)
+        if info:
+            if info[0].isdecimal():
+                m = simple_dice(100, 1)
+                if int(m) > int(info[0]):
+                    msg = 'dice: ' + str(np.sum(m)) + ' = ' + str(m) + ' > ' + str(info[0]) + ' Succese!'
+                elif int(m) <= int(info[0]):
                     msg = 'dice: ' + str(np.sum(m)) + ' = ' + str(m) + ' <= ' + str(info[0]) + ' Failure.' 
                 #msg = 'dice: ' + str(np.sum(m)) + ' = ' + str(m) + ' <= ' + str(info[0]) + ' Succese!'
                 await message.channel.send(msg)
