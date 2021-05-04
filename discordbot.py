@@ -60,12 +60,13 @@ async def on_message(message):
                 msg = 'dice: ' + str(np.sum(m)) + ' = ' + str(m)
                 await message.channel.send(msg)
     
-    if message.content.startswith('CCB') or message.content.startswith('ccb'):
-        if message.content == 'CCB' or message.content == 'ccb':
-            m = simple_dice(100, 1)
-            msg = 'dice: ' + str(np.sum(m)) + ' = ' + str(m)
-            await message.channel.send(msg)
-        if info = parse('CCB <= {}', message.content):
+    if message.content.startswith('CCB'):
+#         if message.content == 'CCB' or message.content == 'ccb':
+#             m = simple_dice(100, 1)
+#             msg = 'dice: ' + str(np.sum(m)) + ' = ' + str(m)
+#             await message.channel.send(msg)
+        info = parse('CCB <= {}', message.content)
+        if info:
             if info[0].isdecimal():
                 m = simple_dice(100, 1)
                 msg = 'dice: ' + str(np.sum(m)) + ' = ' + str(m)
