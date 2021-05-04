@@ -60,10 +60,10 @@ async def on_message(message):
                 msg = 'dice: ' + str(np.sum(m)) + ' = ' + str(m)
                 await message.channel.send(msg)
     
-#     if message.content = 'CCB' or message.content = 'ccb':
-#           m = simple_dice(dice_size, dice_num)
-#           msg = 'dice: ' + str(np.sum(m)) + ' = ' + str(m)
-#           await message.channel.send(msg)
+    if message.content = 'CCB' or message.content = 'ccb':
+          m = simple_dice(100, 1)
+          msg = 'dice: ' + str(np.sum(m)) + ' = ' + str(m)
+          await message.channel.send(msg)
 
 
 client.run(token)
