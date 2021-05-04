@@ -69,11 +69,11 @@ async def on_message(message):
         if info:
             if info[0].isdecimal():
                 m = simple_dice(100, 1)
-#                 if m <= int(info[0]):
-#                     msg = 'dice: ' + str(np.sum(m)) + ' = ' + str(m) + ' Succese!'
-#                 elif:
-#                     msg = 'dice: ' + str(np.sum(m)) + ' = ' + str(m) + ' Failure.' 
-                msg = 'dice: ' + str(np.sum(m)) + ' = ' + str(m) + '<=' + str(info[0]) + ' Succese!'
+                if int(m) <= int(info[0]):
+                    msg = 'dice: ' + str(np.sum(m)) + ' = ' + str(m) + ' <= ' + str(info[0]) + ' Succese!'
+                elif:
+                    msg = 'dice: ' + str(np.sum(m)) + ' = ' + str(m) + ' <= ' + str(info[0]) + ' Failure.' 
+                #msg = 'dice: ' + str(np.sum(m)) + ' = ' + str(m) + ' <= ' + str(info[0]) + ' Succese!'
                 await message.channel.send(msg)
 
 
