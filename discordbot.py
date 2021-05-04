@@ -60,11 +60,13 @@ async def on_message(message):
                 msg = 'dice: ' + str(np.sum(m)) + ' = ' + str(m)
                 await message.channel.send(msg)
     
-    if message.content = 'CCB':
-          m = simple_dice(100, 1)
-          msg = 'dice: ' + str(np.sum(m)) + ' = ' + str(m)
-          await message.channel.send(msg)
+#     if message.content = 'CCB':
+#           m = simple_dice(100, 1)
+#           msg = 'dice: ' + str(np.sum(m)) + ' = ' + str(m)
+#           await message.channel.send(msg)
 
 
 client.run(token)
 #bot.run(token)
+
+heroku logs --tail
