@@ -133,8 +133,8 @@ async def on_message(message):
         roll.append('dice: [8] -> パニック')
         roll.append('dice: [9] -> 恐怖症の獲得（1d100をロールするかKPが1つ選ぶ')
         roll.append('dice: [0] -> マニアの獲得（1d100をロールするかKPが1つ選ぶ')
-        m = roll[simple_dice(10)]
-        a = simple_dice(10)
+        m = roll[simple_dice(10, 1)]
+        a = simple_dice(10, 1)
         m += '\ndice: ['+ str(a) +'] -> 一時的狂気(' + str(a) + '時間後に意識を取り戻す)'
         await message.channel.send(m)
 
