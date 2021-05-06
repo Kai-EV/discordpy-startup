@@ -28,7 +28,7 @@ token = os.environ['DISCORD_BOT_TOKEN']
 
 
 def dice(dice_size):
-    num = np.random.randint(1, int(dice_size))
+    num = np.random.randint(1, int(dice_size + 1))
     return num
 
 def simple_dice(dice_size, dice_num):
