@@ -101,7 +101,23 @@ async def on_message(message):
                     msg = 'dice: ' + str(np.sum(m)) + ' = ' + str(m) + ' <= ' + str(info[0]) + ' Failure.' 
                 #msg = 'dice: ' + str(np.sum(m)) + ' = ' + str(m) + ' <= ' + str(info[0]) + ' Succese!'
                 await message.channel.send(msg)
-                   
+    
+    if message.content.startswith('/p'):
+        info = parse('/p{}CCB', message.content):
+        if info:
+            j = int(info[0])
+            m = dice(10)
+            if m == 10:
+                m = 0
+            for i in range(j):
+                M[i] = dice(10)
+                if M[i] == 10:
+                    M[i] = 0
+            M = M * 10
+            await message.channel.send()
+            
+        
+
     if message.content == 'mad_rt':
         roll = []
         roll.append('a')
