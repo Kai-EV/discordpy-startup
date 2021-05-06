@@ -117,8 +117,8 @@ async def on_message(message):
                     M[i] = M[i] * 10 + m
                     if M[i] == 0:
                         M[i] = 100
-                
-            await message.channel.send(M)
+                msg = str(M)
+                await message.channel.send(M)
             
         
 
