@@ -101,6 +101,24 @@ async def on_message(message):
                     msg = 'dice: ' + str(np.sum(m)) + ' = ' + str(m) + ' <= ' + str(info[0]) + ' Failure.' 
                 #msg = 'dice: ' + str(np.sum(m)) + ' = ' + str(m) + ' <= ' + str(info[0]) + ' Succese!'
                 await message.channel.send(msg)
+                   
+    if message.content == 'mad_rt':
+        roll = []
+        roll.append('a')
+        roll.append('dice: [1] -> 健忘症')
+        roll.append('dice: [2] -> 身体症状症')
+        roll.append('dice: [3] -> 暴力衝動')
+        roll.append('dice: [4] -> 偏執症')
+        roll.append('dice: [5] -> 重要な人々')
+        roll.append('dice: [6] -> 失神')
+        roll.append('dice: [7] -> パニックになって逃亡')
+        roll.append('dice: [8] -> 身体的ヒステリーもしくは感情爆発')
+        roll.append('dice: [9] -> 恐怖症の獲得（1d100をロールするかKPが1つ選ぶ')
+        roll.append('dice: [0] -> マニアの獲得（1d100をロールするかKPが1つ選ぶ')
+        m = roll[dice(10)]
+        a = dice(10)
+        m += '\ndice: ['+ str(a) +']+4 -> 一時的狂気(' + str(a) + 'ラウンド) or (' + str(a) + '時間)'
+        await message.channel.send(m)
 
 
 client.run(token)
