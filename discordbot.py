@@ -117,7 +117,25 @@ async def on_message(message):
         roll.append('dice: [0] -> マニアの獲得（1d100をロールするかKPが1つ選ぶ')
         m = roll[dice(10)]
         a = dice(10)
-        m += '\ndice: ['+ str(a) +']+4 -> 一時的狂気(' + str(a) + 'ラウンド) or (' + str(a) + '時間)'
+        m += '\ndice: ['+ str(a) +'] -> 一時的狂気(' + str(a) + 'ラウンド) or (' + str(a) + '時間)'
+        await message.channel.send(m)
+
+    if message.content == 'mad_s':
+        roll = []
+        roll.append('a')
+        roll.append('dice: [1] -> 健忘症')
+        roll.append('dice: [2] -> 盗難')
+        roll.append('dice: [3] -> 暴行')
+        roll.append('dice: [4] -> 暴力')
+        roll.append('dice: [5] -> イデオロギー・信念')
+        roll.append('dice: [6] -> 重要な人々')
+        roll.append('dice: [7] -> 収容')
+        roll.append('dice: [8] -> パニック')
+        roll.append('dice: [9] -> 恐怖症の獲得（1d100をロールするかKPが1つ選ぶ')
+        roll.append('dice: [0] -> マニアの獲得（1d100をロールするかKPが1つ選ぶ')
+        m = roll[dice(10)]
+        a = dice(10)
+        m += '\ndice: ['+ str(a) +'] -> 一時的狂気(' + str(a) + '時間後に意識を取り戻す)'
         await message.channel.send(m)
 
 
