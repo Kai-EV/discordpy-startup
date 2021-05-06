@@ -105,16 +105,20 @@ async def on_message(message):
     if message.content.startswith('/p'):
         info = parse('/p{}CCB', message.content)
         if info:
-            j = int(info[0])
-            m = dice(10)
-            if m == 10:
-                m = 0
-            for i in range(j):
-                M[i] = dice(10)
-                if M[i] == 10:
-                    M[i] = 0
-            M = M * 10
-            await message.channel.send(M, m)
+            if info[0].isdecimal():
+                j = int(info[0])
+                m = dice(10)
+                if m == 10:
+                    m = 0
+                for i in range(j):
+                    M[i] = dice(10)
+                    if M[i] == 10:
+                        M[i] = 0
+                    M[i] = M[i] * 10 + m
+                    if M[i] == 0:
+                        M[i] = 100
+                
+            await message.channel.send(M)
             
         
 
