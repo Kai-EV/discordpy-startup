@@ -108,9 +108,10 @@ async def on_message(message):
             if info[0].isdecimal():
                 j = int(info[0])
                 m = dice(10)
-                await message.channel.send(str(m))
+                #await message.channel.send(str(m))
                 if m == 10:
                     m = 0
+                M = []
                 for i in range(j):
                     M[i] = dice(10)
                     if M[i] == 10:
@@ -118,6 +119,7 @@ async def on_message(message):
                     M[i] = M[i] * 10 + m
                     if M[i] == 0:
                         M[i] = 100
+                    await message.channel.send(str(M[i]))
                 msg = str(M)
                 await message.channel.send(msg)
             
