@@ -50,8 +50,8 @@ async def on_message(message):
     if message.content == '/neko':
         await message.channel.send('にゃーん')
 
-    if message.content.startswith('dice'):
-        info = parse('dice {}d{}', message.content)
+    if message.content.startswith('/dice'):
+        info = parse('/dice {}d{}', message.content)
         if info:
             if info[1].isdecimal() and info[0].isdecimal():
                 dice_num = int(info[0])
@@ -164,6 +164,7 @@ async def on_message(message):
                     
     if message.content.startswith('/b'):
         info = parse('/b{}CCB', message.content)
+        info2 = parse('/b{}CCB<={}', message.content)
         if info:
             if info[0].isdecimal():
                 j = int(info[0])
@@ -183,10 +184,47 @@ async def on_message(message):
                     #await message.channel.send(str(M[i]))
                 msg = 'dice: ' + str(M) + ' = ' + str(min(M))
                 await message.channel.send(msg)
+        if info2:
+            if info2[0].isdecimal() and info2[1].isdecimal():
+                j = int(info2[0])
+                m = dice(10)
+                if m == 10:
+                    m = 0
+                #await message.channel.send(str(j))
+                M = []
+                for i in range(j):
+                    M.append(dice(10))
+                    #await message.channel.send(str(M[i]))
+                    if M[i] == 10:
+                        M[i] = 0
+                    M[i] = M[i] * 10 + m
+                    if M[i] == 0:
+                        M[i] = 100
+                    #await message.channel.send(str(M[i]))
+                Mm = min(M)
+                if Mm <= (int(info2[1])/5):
+                    msg = 'dice: ' + str(M) + ' = ' + str(Mm) + ' <= ' + str(info2[1]) + ' Extreme!!!'
+                elif (int(info2[1])/5) < Mm <= (int(info2[1])/2):
+                    msg = 'dice: ' + str(M) + ' = ' + str(Mm) + ' <= ' + str(info2[1]) + ' Hard!!'
+                elif (int(info2[1])/2) < Mm <= int(info2[1]):
+                    msg = 'dice: ' + str(M) + ' = ' + str(Mm) + ' <= ' + str(info2[1]) + ' Succese!'
+                elif Mm > int(info2[1]):
+                    if int(info2[1]) >= 50:
+                        if int(info2[1]) < Mm <= 99:
+                            msg = 'dice: ' + str(M) + ' = ' + str(Mm) + ' > ' + str(info2[1]) + ' Failure.' 
+                        elif Mm == 100:
+                            msg = 'dice: ' + str(M) + ' = ' + str(Mm) + ' > ' + str(info2[1]) + ' Fanble...'
+                    elif int(info2[1]) < 50:
+                        if int(info2[1]) < Mm <= 95:
+                            msg = 'dice: ' + str(M) + ' = ' + str(Mm) + ' > ' + str(info2[1]) + ' Failure.' 
+                        elif 96 <= Mm <= 100:
+                            msg = 'dice: ' + str(M) + ' = ' + str(Mm) + ' > ' + str(info2[1]) + ' Fanble...'                    
+                #msg = 'dice: ' + str(M) + ' = ' + str(max(M))
+                await message.channel.send(msg)
             
         
 
-    if message.content == 'mad_rt':
+    if message.content == '/mad_rt':
         roll = []
         roll.append('a')
         roll.append('dice: [1] -> 健忘症')
@@ -204,7 +242,7 @@ async def on_message(message):
         m += '\ndice: ['+ str(a) +'] -> 一時的狂気(' + str(a) + 'ラウンド) or (' + str(a) + '時間)'
         await message.channel.send(m)
 
-    if message.content == 'mad_s':
+    if message.content == '/mad_s':
         roll = []
         roll.append('a')
         roll.append('dice: [1] -> 健忘症')
