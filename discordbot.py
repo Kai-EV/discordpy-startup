@@ -103,7 +103,7 @@ async def on_message(message):
                 await message.channel.send(msg)
     
     if message.content.startswith('/p'):
-        info = parse('/p{}CCB', message.content)
+        info = parse('/p{} CCB', message.content)
         if info:
             if info[0].isdecimal():
                 j = int(info[0])
