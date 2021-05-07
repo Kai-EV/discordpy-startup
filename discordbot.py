@@ -103,7 +103,7 @@ async def on_message(message):
                 await message.channel.send(msg)
     
     if message.content.startswith('/p'):
-        info = parse('/p{} CCB', message.content)
+        info = parse('/p{}CCB', message.content)
         if info:
             if info[0].isdecimal():
                 j = int(info[0])
@@ -112,17 +112,16 @@ async def on_message(message):
                     m = 0
                 #await message.channel.send(str(j))
                 M = []
-                #i = 0
                 for i in range(j):
                     M.append(dice(10))
-                    await message.channel.send(str(M[i]))
+                    #await message.channel.send(str(M[i]))
                     if M[i] == 10:
                         M[i] = 0
                     M[i] = M[i] * 10 + m
                     if M[i] == 0:
                         M[i] = 100
-                    await message.channel.send(str(M[i]))
-                msg = str(M)
+                    #await message.channel.send(str(M[i]))
+                msg = 'dice: ' + str(M) + ' = ' + str(Max(M))
                 await message.channel.send(msg)
             
         
