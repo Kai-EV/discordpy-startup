@@ -110,7 +110,7 @@ async def on_message(message):
                 m = dice(10)
                 if m == 10:
                     m = 0
-                await message.channel.send(str(m), str(j))
+                await message.channel.send(str(j))
                 M = []
                 i = 0
                 for i in range(j):
