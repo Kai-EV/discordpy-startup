@@ -93,7 +93,7 @@ async def on_message(message):
                 dice_size = int(info5[1])
                 m = simple_dice(dice_size, dice_num)
                 c = int(info5[2])
-                msg = 'dice: ' + str(np.sum(m)) + '/' + str(c)+ ' = ' + str(np.sum(m)/c)
+                msg = 'dice: ' + str(np.sum(m)) + '/' + str(c)+ ' = ' + str(-(-np.sum(m)//c))
                 await message.channel.send(msg)
           
     if message.content == 'CCB' or message.content == 'ccb':
