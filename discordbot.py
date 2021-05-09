@@ -52,10 +52,43 @@ async def on_message(message):
 
     if message.content.startswith('/dice'):
         info = parse('/dice {}d{}', message.content)
+        info2 = parse('/dice {}d{}+{}', message.content)
+        info3 = parse('/dice {}d{}-{}', message.content)
+        info4 = parse('/dice {}d{}*{}', message.content)
+        info5 = parse('/dice {}d{}/{}', message.content)
         if info:
             if info[1].isdecimal() and info[0].isdecimal():
                 dice_num = int(info[0])
                 dice_size = int(info[1])
+                m = simple_dice(dice_size, dice_num)
+                msg = 'dice: ' + str(np.sum(m)) + ' = ' + str(m)
+                await message.channel.send(msg)
+        if info2:
+            if info2[1].isdecimal() and info2[0].isdecimal():
+                dice_num = int(info2[0])
+                dice_size = int(info2[1])
+                m = simple_dice(dice_size, dice_num)
+                c = int(info[2])
+                msg = 'dice: ' + str(np.sum(m)) + ' + ' + str(c)+ ' = ' + str(m+c)
+                await message.channel.send(msg)
+        if info3:
+            if info3[1].isdecimal() and info3[0].isdecimal():
+                dice_num = int(info3[0])
+                dice_size = int(info3[1])
+                m = simple_dice(dice_size, dice_num)
+                msg = 'dice: ' + str(np.sum(m)) + ' = ' + str(m)
+                await message.channel.send(msg)
+        if info4:
+            if info4[1].isdecimal() and info4[0].isdecimal():
+                dice_num = int(info4[0])
+                dice_size = int(info4[1])
+                m = simple_dice(dice_size, dice_num)
+                msg = 'dice: ' + str(np.sum(m)) + ' = ' + str(m)
+                await message.channel.send(msg)
+        if info5:
+            if info5[1].isdecimal() and info5[0].isdecimal():
+                dice_num = int(info5[0])
+                dice_size = int(info5[1])
                 m = simple_dice(dice_size, dice_num)
                 msg = 'dice: ' + str(np.sum(m)) + ' = ' + str(m)
                 await message.channel.send(msg)
