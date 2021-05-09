@@ -69,7 +69,7 @@ async def on_message(message):
                 dice_size = int(info2[1])
                 m = simple_dice(dice_size, dice_num)
                 c = int(info2[2])
-                msg = 'dice: ' + str(np.sum(m)), str(m) + '+' + str(c)+ ' = ' + str(np.sum(m)+c)
+                msg = 'dice: ' + str(np.sum(m)) str(m) + '+' + str(c)+ ' = ' + str(np.sum(m)+c)
                 await message.channel.send(msg)
         if info3:
             if info3[1].isdecimal() and info3[0].isdecimal():
@@ -77,7 +77,7 @@ async def on_message(message):
                 dice_size = int(info3[1])
                 m = simple_dice(dice_size, dice_num)
                 c = int(info3[2])
-                msg = 'dice: ' + str(np.sum(m)) , str(m) + '-' + str(c)+ ' = ' + str(np.sum(m)-c)
+                msg = 'dice: ' + str(np.sum(m)) str(m) + '-' + str(c)+ ' = ' + str(np.sum(m)-c)
                 await message.channel.send(msg)
         if info4:
             if info4[1].isdecimal() and info4[0].isdecimal():
@@ -85,7 +85,7 @@ async def on_message(message):
                 dice_size = int(info4[1])
                 m = simple_dice(dice_size, dice_num)
                 c = int(info4[2])
-                msg = 'dice: ' + str(np.sum(m)) , str(m) + '*' + str(c)+ ' = ' + str(np.sum(m)*c)
+                msg = 'dice: ' + str(np.sum(m)) str(m) + '*' + str(c)+ ' = ' + str(np.sum(m)*c)
                 await message.channel.send(msg)
         if info5:
             if info5[1].isdecimal() and info5[0].isdecimal():
@@ -93,7 +93,7 @@ async def on_message(message):
                 dice_size = int(info5[1])
                 m = simple_dice(dice_size, dice_num)
                 c = int(info5[2])
-                msg = 'dice: ' + str(np.sum(m)) , str(m) + '/' + str(c)+ ' = ' + str(-(-np.sum(m)//c))
+                msg = 'dice: ' + str(np.sum(m)) str(m) + '/' + str(c)+ ' = ' + str(-(-np.sum(m)//c))
                 await message.channel.send(msg)
           
     if message.content == 'CCB' or message.content == 'ccb':
