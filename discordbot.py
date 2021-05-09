@@ -92,7 +92,7 @@ async def on_message(message):
                 dice_num = int(info5[0])
                 dice_size = int(info5[1])
                 m = simple_dice(dice_size, dice_num)
-                c = int(info4[2])
+                c = int(info5[2])
                 msg = 'dice: ' + str(np.sum(m)) + '/' + str(c)+ ' = ' + str(np.sum(m)/c)
                 await message.channel.send(msg)
           
