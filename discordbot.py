@@ -103,7 +103,7 @@ async def on_message(message):
                     
     if message.content.startswith('CCB<='):     
         info = parse('CCB<={}', message.content)
-	info2 = parse('CCB<={}{}', message.content)
+	#info2 = parse('CCB<={}{}', message.content)
         if info:
             if info[0].isdecimal():
                 m = simple_dice(100, 1)
@@ -163,7 +163,7 @@ async def on_message(message):
     
     if message.content.startswith('/p'):
         info = parse('/p{}CCB', message.content)
-        #info2 = parse('/p{}CCB<={}', message.content)
+        info2 = parse('/p{}CCB<={}', message.content)
         if info:
             if info[0].isdecimal():
                 j = int(info[0])
