@@ -104,7 +104,7 @@ async def on_message(message):
     if message.content.startswith('CCB<='):     
         info = parse('CCB<={}', message.content)
 	info2 = parse('CCB<={} {}', message.content)
-        if info or info2:
+        if info:
             if info[0].isdecimal():
                 m = simple_dice(100, 1)
                 if int(m) <= (int(info[0])/5):
@@ -124,6 +124,28 @@ async def on_message(message):
                             msg = 'dice: ' + str(np.sum(m)) + ' = ' + str(m) + ' > ' + str(info[0]) + ' Failure.' 
                         elif 96 <= int(m) <= 100:
                             msg = 'dice: ' + str(np.sum(m)) + ' = ' + str(m) + ' > ' + str(info[0]) + ' Fanble...'
+                #msg = 'dice: ' + str(np.sum(m)) + ' = ' + str(m) + ' <= ' + str(info[0]) + ' Succese!'
+                await message.channel.send(msg)
+	if info2:
+            if info2[0].isdecimal():
+                m = simple_dice(100, 1)
+                if int(m) <= (int(info2[0])/5):
+                    msg = 'dice: ' + str(np.sum(m)) + ' = ' + str(m) + ' <= ' + str(info2[0]) + ' Extreme!!!'
+                elif (int(info2[0])/5) < int(m) <= (int(info2[0])/2):
+                    msg = 'dice: ' + str(np.sum(m)) + ' = ' + str(m) + ' <= ' + str(info2[0]) + ' Hard!!'
+                elif (int(info2[0])/2) < int(m) <= int(info2[0]):
+                    msg = 'dice: ' + str(np.sum(m)) + ' = ' + str(m) + ' <= ' + str(info2[0]) + ' Succese!'
+                elif int(m) > int(info2[0]):
+                    if int(info2[0]) >= 50:
+                        if int(info2[0]) < int(m) <= 99:
+                            msg = 'dice: ' + str(np.sum(m)) + ' = ' + str(m) + ' > ' + str(info2[0]) + ' Failure.' 
+                        elif int(m) == 100:
+                            msg = 'dice: ' + str(np.sum(m)) + ' = ' + str(m) + ' > ' + str(info2[0]) + ' Fanble...'
+                    elif int(info2[0]) < 50:
+                        if int(info2[0]) < int(m) <= 95:
+                            msg = 'dice: ' + str(np.sum(m)) + ' = ' + str(m) + ' > ' + str(info2[0]) + ' Failure.' 
+                        elif 96 <= int(m) <= 100:
+                            msg = 'dice: ' + str(np.sum(m)) + ' = ' + str(m) + ' > ' + str(info2[0]) + ' Fanble...'
                 #msg = 'dice: ' + str(np.sum(m)) + ' = ' + str(m) + ' <= ' + str(info[0]) + ' Succese!'
                 await message.channel.send(msg)
                     
