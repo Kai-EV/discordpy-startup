@@ -249,7 +249,7 @@ async def on_message(message):
                         M[i] = 100
                     #await message.channel.send(str(M[i]))
                 Mm = min(M)
-                msg = CCB(Mm, int(info2[1]))                  
+		msg = CCB(Mm, int(info2[1]))                  
                 await message.channel.send(msg)
             
         
