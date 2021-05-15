@@ -59,6 +59,26 @@ def CCB(m, a):
                 msg = 'dice: ' + str(np.sum(m)) + ' = ' + str(m) + ' > ' + str(a) + ' Fanble...'
     return msg
 
+def bp(m, a, M):
+    if m <= (a/5):
+        msg = 'dice: ' + str(M) + ' = ' + str(m) + ' <= ' + str(a) + ' Extreme!!!'
+    elif (a/5) < m <= (a/2):
+        msg = 'dice: ' + str(M) + ' = ' + str(m) + ' <= ' + str(a) + ' Hard!!'
+    elif (a/2) < m <= a:
+        msg = 'dice: ' + str(M) + ' = ' + str(m) + ' <= ' + str(a) + ' Succese!'
+    elif m > a:
+        if a >= 50:
+            if a < m <= 99:
+                msg = 'dice: ' + str(M) + ' = ' + str(m) + ' > ' + str(a) + ' Failure.'
+            elif m == 100:
+                msg = 'dice: ' + str(M) + ' = ' + str(m) + ' > ' + str(a) + ' Fanble...'
+        elif a < 50:
+            if a < m <= 95:
+                msg = 'dice: ' + str(M) + ' = ' + str(m) + ' > ' + str(a) + ' Failure.'
+            elif 96 <= m <= 100:
+                msg = 'dice: ' + str(M) + ' = ' + str(m) + ' > ' + str(a) + ' Fanble...'
+    return msg
+
 
 # メッセージ受信時に動作する処理
 @client.event
@@ -188,7 +208,7 @@ async def on_message(message):
                         M[i] = 100
                     #await message.channel.send(str(M[i]))
                 Mm = max(M)
-                msg = CCB(Mm, int(info2[1]))
+                msg = bp(Mm, int(info2[1]), M)
                 await message.channel.send(msg)
 		
                     
@@ -232,7 +252,7 @@ async def on_message(message):
                         M[i] = 100
                     #await message.channel.send(str(M[i]))
                 Mm = min(M)
-                msg = CCB(Mm, int(info2[1]))
+                msg = bp(Mm, int(info2[1]), M)
                 await message.channel.send(msg)
             
         
