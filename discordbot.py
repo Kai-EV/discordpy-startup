@@ -170,12 +170,12 @@ async def on_message(message):
                 msg = CCB(m, int(info_[0]))
                 await message.channel.send(msg)
         if info_2:
-            if info_2[0].isdecimal() and info_2[0].isdecimal() and info_2[1].isalpha():
+            if info_2[0].isdecimal() and info_2[1].isdecimal() and info_2[2].isalpha():
                 m = simple_dice(100, 1)
                 msg = CCB(m, int(info_2[0])+int(info_2[1]))
                 await message.channel.send(msg)
         if info_3:
-            if info_3[0].isdecimal() and info_3[0].isdecimal() and info_31].isalpha():
+            if info_3[0].isdecimal() and info_3[1].isdecimal() and info_3[2].isalpha():
                 m = simple_dice(100, 1)
                 msg = CCB(m, int(info_3[0])-int(info_3[1]))
                 await message.channel.send(msg)
