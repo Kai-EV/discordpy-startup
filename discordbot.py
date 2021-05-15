@@ -163,6 +163,7 @@ async def on_message(message):
                     msg = 'dice: ' + str(np.sum(m)) + ' = ' + str(m) + ' <= ' + str(info[0]) + ' Failure.' 
                 #msg = 'dice: ' + str(np.sum(m)) + ' = ' + str(m) + ' <= ' + str(info[0]) + ' Succese!'
                 await message.channel.send(msg)
+		
     
     if message.content.startswith('/p'):
         info = parse('/p{}CCB', message.content)
@@ -204,25 +205,9 @@ async def on_message(message):
                         M[i] = 100
                     #await message.channel.send(str(M[i]))
                 Mm = max(M)
-                if Mm <= (int(info2[1])/5):
-                    msg = 'dice: ' + str(M) + ' = ' + str(Mm) + ' <= ' + str(info2[1]) + ' Extreme!!!'
-                elif (int(info2[1])/5) < Mm <= (int(info2[1])/2):
-                    msg = 'dice: ' + str(M) + ' = ' + str(Mm) + ' <= ' + str(info2[1]) + ' Hard!!'
-                elif (int(info2[1])/2) < Mm <= int(info2[1]):
-                    msg = 'dice: ' + str(M) + ' = ' + str(Mm) + ' <= ' + str(info2[1]) + ' Succese!'
-                elif Mm > int(info2[1]):
-                    if int(info2[1]) >= 50:
-                        if int(info2[1]) < Mm <= 99:
-                            msg = 'dice: ' + str(M) + ' = ' + str(Mm) + ' > ' + str(info2[1]) + ' Failure.' 
-                        elif Mm == 100:
-                            msg = 'dice: ' + str(M) + ' = ' + str(Mm) + ' > ' + str(info2[1]) + ' Fanble...'
-                    elif int(info2[1]) < 50:
-                        if int(info2[1]) < Mm <= 95:
-                            msg = 'dice: ' + str(M) + ' = ' + str(Mm) + ' > ' + str(info2[1]) + ' Failure.' 
-                        elif 96 <= Mm <= 100:
-                            msg = 'dice: ' + str(M) + ' = ' + str(Mm) + ' > ' + str(info2[1]) + ' Fanble...'                    
-                #msg = 'dice: ' + str(M) + ' = ' + str(max(M))
+		msg = CCB(Mm, int(info2[1]))
                 await message.channel.send(msg)
+		
                     
     if message.content.startswith('/b'):
         info = parse('/b{}CCB', message.content)
@@ -264,24 +249,7 @@ async def on_message(message):
                         M[i] = 100
                     #await message.channel.send(str(M[i]))
                 Mm = min(M)
-                if Mm <= (int(info2[1])/5):
-                    msg = 'dice: ' + str(M) + ' = ' + str(Mm) + ' <= ' + str(info2[1]) + ' Extreme!!!'
-                elif (int(info2[1])/5) < Mm <= (int(info2[1])/2):
-                    msg = 'dice: ' + str(M) + ' = ' + str(Mm) + ' <= ' + str(info2[1]) + ' Hard!!'
-                elif (int(info2[1])/2) < Mm <= int(info2[1]):
-                    msg = 'dice: ' + str(M) + ' = ' + str(Mm) + ' <= ' + str(info2[1]) + ' Succese!'
-                elif Mm > int(info2[1]):
-                    if int(info2[1]) >= 50:
-                        if int(info2[1]) < Mm <= 99:
-                            msg = 'dice: ' + str(M) + ' = ' + str(Mm) + ' > ' + str(info2[1]) + ' Failure.' 
-                        elif Mm == 100:
-                            msg = 'dice: ' + str(M) + ' = ' + str(Mm) + ' > ' + str(info2[1]) + ' Fanble...'
-                    elif int(info2[1]) < 50:
-                        if int(info2[1]) < Mm <= 95:
-                            msg = 'dice: ' + str(M) + ' = ' + str(Mm) + ' > ' + str(info2[1]) + ' Failure.' 
-                        elif 96 <= Mm <= 100:
-                            msg = 'dice: ' + str(M) + ' = ' + str(Mm) + ' > ' + str(info2[1]) + ' Fanble...'                    
-                #msg = 'dice: ' + str(M) + ' = ' + str(max(M))
+                msg = CCB(Mm, int(info2[1]))                  
                 await message.channel.send(msg)
             
         
