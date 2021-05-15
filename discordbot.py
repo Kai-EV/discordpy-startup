@@ -129,7 +129,7 @@ async def on_message(message):
                 m = simple_dice(100, 1)
                 msg = CCB(m, int(info[0]))
                 await message.channel.send(msg)
-	if info2:
+        if info2:
             if info2[0].isdecimal() and info2[1].isalpha():
                 m = simple_dice(100, 1)
                 msg = CCB(m, int(info2[0]))
