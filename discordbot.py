@@ -39,6 +39,26 @@ def simple_dice(dice_size, dice_num):
     m = dice_val
     return m
 
+def CCB(m, a):
+    if m <= (a/5):
+        msg = 'dice: ' + str(np.sum(m)) + ' = ' + str(m) + ' <= ' + str(a) + ' Extreme!!!'
+    elif (a/5) < m <= (a/2):
+        msg = 'dice: ' + str(np.sum(m)) + ' = ' + str(m) + ' <= ' + str(a) + ' Hard!!'
+    elif (a/2) < m <= a:
+        msg = 'dice: ' + str(np.sum(m)) + ' = ' + str(m) + ' <= ' + str(a) + ' Succese!'
+    elif m > a:
+        if a >= 50:
+            if a < m <= 99:
+                msg = 'dice: ' + str(np.sum(m)) + ' = ' + str(m) + ' > ' + str(a) + ' Failure.'
+            elif m == 100:
+                msg = 'dice: ' + str(np.sum(m)) + ' = ' + str(m) + ' > ' + str(a) + ' Fanble...'
+        elif a < 50:
+            if a < m <= 95:
+                msg = 'dice: ' + str(np.sum(m)) + ' = ' + str(m) + ' > ' + str(a) + ' Failure.'
+            elif 96 <= m <= 100:
+                msg = 'dice: ' + str(np.sum(m)) + ' = ' + str(m) + ' > ' + str(a) + ' Fanble...'
+    return msg
+
 
 # メッセージ受信時に動作する処理
 @client.event
@@ -107,24 +127,7 @@ async def on_message(message):
         if info:
             if info[0].isdecimal():
                 m = simple_dice(100, 1)
-                if int(m) <= (int(info[0])/5):
-                    msg = 'dice: ' + str(np.sum(m)) + ' = ' + str(m) + ' <= ' + str(info[0]) + ' Extreme!!!'
-                elif (int(info[0])/5) < int(m) <= (int(info[0])/2):
-                    msg = 'dice: ' + str(np.sum(m)) + ' = ' + str(m) + ' <= ' + str(info[0]) + ' Hard!!'
-                elif (int(info[0])/2) < int(m) <= int(info[0]):
-                    msg = 'dice: ' + str(np.sum(m)) + ' = ' + str(m) + ' <= ' + str(info[0]) + ' Succese!'
-                elif int(m) > int(info[0]):
-                    if int(info[0]) >= 50:
-                        if int(info[0]) < int(m) <= 99:
-                            msg = 'dice: ' + str(np.sum(m)) + ' = ' + str(m) + ' > ' + str(info[0]) + ' Failure.' 
-                        elif int(m) == 100:
-                            msg = 'dice: ' + str(np.sum(m)) + ' = ' + str(m) + ' > ' + str(info[0]) + ' Fanble...'
-                    elif int(info[0]) < 50:
-                        if int(info[0]) < int(m) <= 95:
-                            msg = 'dice: ' + str(np.sum(m)) + ' = ' + str(m) + ' > ' + str(info[0]) + ' Failure.' 
-                        elif 96 <= int(m) <= 100:
-                            msg = 'dice: ' + str(np.sum(m)) + ' = ' + str(m) + ' > ' + str(info[0]) + ' Fanble...'
-                #msg = 'dice: ' + str(np.sum(m)) + ' = ' + str(m) + ' <= ' + str(info[0]) + ' Succese!'
+                msg = CCB(m, int(info[0]))
                 await message.channel.send(msg)
 # 	if info2:
 #             if info2[0].isdecimal():
