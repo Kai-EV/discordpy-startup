@@ -143,16 +143,41 @@ async def on_message(message):
                     
     if message.content.startswith('CCB<='):     
         info = parse('CCB<={}', message.content)
-        info2 = parse('CCB<={} {}', message.content)
+        info2 = parse('CCB<={}+{}', message.content)
+        info3 = parse('CCB<={}-{}', message.content)
+        info_ = parse('CCB<={} {}', message.content)
+        info_2 = parse('CCB<={}+{} {}', message.content)
+        info_3 = parse('CCB<={}-{} {}', message.content)
+
         if info:
             if info[0].isdecimal():
                 m = simple_dice(100, 1)
                 msg = CCB(m, int(info[0]))
                 await message.channel.send(msg)
         if info2:
-            if info2[0].isdecimal() and info2[1].isalpha():
+            if info2[0].isdecimal() and info2[1].isdecimal():
                 m = simple_dice(100, 1)
-                msg = CCB(m, int(info2[0]))
+                msg = CCB(m, int(info2[0])+int(info2[1]))
+                await message.channel.send(msg)
+        if info3:
+            if info3[0].isdecimal() and info3[1].isdecimal():
+                m = simple_dice(100, 1)
+                msg = CCB(m, int(info3[0])-int(info3[1]))
+                await message.channel.send(msg)
+        if info_:
+            if info_[0].isdecimal() and info_[1].isalpha():
+                m = simple_dice(100, 1)
+                msg = CCB(m, int(info_[0]))
+                await message.channel.send(msg)
+        if info_2:
+            if info_2[0].isdecimal() and info_2[0].isdecimal() and info_2[1].isalpha():
+                m = simple_dice(100, 1)
+                msg = CCB(m, int(info_2[0])+int(info_2[1]))
+                await message.channel.send(msg)
+        if info_3:
+            if info_3[0].isdecimal() and info_3[0].isdecimal() and info_31].isalpha():
+                m = simple_dice(100, 1)
+                msg = CCB(m, int(info_3[0])-int(info_3[1]))
                 await message.channel.send(msg)
                     
     if message.content.startswith('CCB>'):     
