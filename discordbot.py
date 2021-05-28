@@ -17,7 +17,7 @@ token = os.environ['DISCORD_BOT_TOKEN']
 #     await ctx.send(error_msg)
 
 
-# @bot.command()
+# @bot.command() 
 # async def ping(ctx):
 #     await ctx.send('pong')
     
