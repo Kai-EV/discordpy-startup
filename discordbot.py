@@ -27,57 +27,57 @@ token = os.environ['DISCORD_BOT_TOKEN']
 #     await ctx.send('nyan')
 
 
-def dice(dice_size):
-    num = np.random.randint(1, int(dice_size + 1))
-    return num
+# def dice(dice_size):
+#     num = np.random.randint(1, int(dice_size + 1))
+#     return num
 
-def simple_dice(dice_size, dice_num):
-    dice_val = np.array([], dtype=np.int64)
-    for i in range(dice_num):
-        dice_val = np.append(dice_val, dice(dice_size))
-    #msg = 'dice: ' + str(np.sum(dice_val)) + ' = ' + str(dice_val)
-    m = dice_val
-    return m
+# def simple_dice(dice_size, dice_num):
+#     dice_val = np.array([], dtype=np.int64)
+#     for i in range(dice_num):
+#         dice_val = np.append(dice_val, dice(dice_size))
+#     #msg = 'dice: ' + str(np.sum(dice_val)) + ' = ' + str(dice_val)
+#     m = dice_val
+#     return m
 
-def CCB(m, a):
-    if m <= (a/5):
-        msg = 'dice: ' + str(np.sum(m)) + ' = ' + str(m) + ' <= ' + str(a) + ' Extreme!!!'
-    elif (a/5) < m <= (a/2):
-        msg = 'dice: ' + str(np.sum(m)) + ' = ' + str(m) + ' <= ' + str(a) + ' Hard!!'
-    elif (a/2) < m <= a:
-        msg = 'dice: ' + str(np.sum(m)) + ' = ' + str(m) + ' <= ' + str(a) + ' Succese!'
-    elif m > a:
-        if a >= 50:
-            if a < m <= 99:
-                msg = 'dice: ' + str(np.sum(m)) + ' = ' + str(m) + ' > ' + str(a) + ' Failure.'
-            elif m == 100:
-                msg = 'dice: ' + str(np.sum(m)) + ' = ' + str(m) + ' > ' + str(a) + ' Fanble...'
-        elif a < 50:
-            if a < m <= 95:
-                msg = 'dice: ' + str(np.sum(m)) + ' = ' + str(m) + ' > ' + str(a) + ' Failure.'
-            elif 96 <= m <= 100:
-                msg = 'dice: ' + str(np.sum(m)) + ' = ' + str(m) + ' > ' + str(a) + ' Fanble...'
-    return msg
+# def CCB(m, a):
+#     if m <= (a/5):
+#         msg = 'dice: ' + str(np.sum(m)) + ' = ' + str(m) + ' <= ' + str(a) + ' Extreme!!!'
+#     elif (a/5) < m <= (a/2):
+#         msg = 'dice: ' + str(np.sum(m)) + ' = ' + str(m) + ' <= ' + str(a) + ' Hard!!'
+#     elif (a/2) < m <= a:
+#         msg = 'dice: ' + str(np.sum(m)) + ' = ' + str(m) + ' <= ' + str(a) + ' Succese!'
+#     elif m > a:
+#         if a >= 50:
+#             if a < m <= 99:
+#                 msg = 'dice: ' + str(np.sum(m)) + ' = ' + str(m) + ' > ' + str(a) + ' Failure.'
+#             elif m == 100:
+#                 msg = 'dice: ' + str(np.sum(m)) + ' = ' + str(m) + ' > ' + str(a) + ' Fanble...'
+#         elif a < 50:
+#             if a < m <= 95:
+#                 msg = 'dice: ' + str(np.sum(m)) + ' = ' + str(m) + ' > ' + str(a) + ' Failure.'
+#             elif 96 <= m <= 100:
+#                 msg = 'dice: ' + str(np.sum(m)) + ' = ' + str(m) + ' > ' + str(a) + ' Fanble...'
+#     return msg
 
-def bp(m, a, M):
-    if m <= (a/5):
-        msg = 'dice: ' + str(M) + ' = ' + str(m) + ' <= ' + str(a) + ' Extreme!!!'
-    elif (a/5) < m <= (a/2):
-        msg = 'dice: ' + str(M) + ' = ' + str(m) + ' <= ' + str(a) + ' Hard!!'
-    elif (a/2) < m <= a:
-        msg = 'dice: ' + str(M) + ' = ' + str(m) + ' <= ' + str(a) + ' Succese!'
-    elif m > a:
-        if a >= 50:
-            if a < m <= 99:
-                msg = 'dice: ' + str(M) + ' = ' + str(m) + ' > ' + str(a) + ' Failure.'
-            elif m == 100:
-                msg = 'dice: ' + str(M) + ' = ' + str(m) + ' > ' + str(a) + ' Fanble...'
-        elif a < 50:
-            if a < m <= 95:
-                msg = 'dice: ' + str(M) + ' = ' + str(m) + ' > ' + str(a) + ' Failure.'
-            elif 96 <= m <= 100:
-                msg = 'dice: ' + str(M) + ' = ' + str(m) + ' > ' + str(a) + ' Fanble...'
-    return msg
+# def bp(m, a, M):
+#     if m <= (a/5):
+#         msg = 'dice: ' + str(M) + ' = ' + str(m) + ' <= ' + str(a) + ' Extreme!!!'
+#     elif (a/5) < m <= (a/2):
+#         msg = 'dice: ' + str(M) + ' = ' + str(m) + ' <= ' + str(a) + ' Hard!!'
+#     elif (a/2) < m <= a:
+#         msg = 'dice: ' + str(M) + ' = ' + str(m) + ' <= ' + str(a) + ' Succese!'
+#     elif m > a:
+#         if a >= 50:
+#             if a < m <= 99:
+#                 msg = 'dice: ' + str(M) + ' = ' + str(m) + ' > ' + str(a) + ' Failure.'
+#             elif m == 100:
+#                 msg = 'dice: ' + str(M) + ' = ' + str(m) + ' > ' + str(a) + ' Fanble...'
+#         elif a < 50:
+#             if a < m <= 95:
+#                 msg = 'dice: ' + str(M) + ' = ' + str(m) + ' > ' + str(a) + ' Failure.'
+#             elif 96 <= m <= 100:
+#                 msg = 'dice: ' + str(M) + ' = ' + str(m) + ' > ' + str(a) + ' Fanble...'
+#     return msg
 
 
 # メッセージ受信時に動作する処理
