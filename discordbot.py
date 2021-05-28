@@ -22,7 +22,7 @@ token = os.environ['DISCORD_BOT_TOKEN']
 #     await ctx.send('pong')
     
    
-# @bot.command()
+# @bot.command() 
 # async def neko(ctx):
 #     await ctx.send('nyan')
 
