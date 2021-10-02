@@ -45,7 +45,7 @@ def CCB(m, a):
     elif (a/5) < m <= (a/2):
         msg = 'dice: ' + str(np.sum(m)) + ' = ' + str(m) + ' <= ' + str(a) + ' Hard!!'
     elif (a/2) < m <= a:
-        msg = 'dice: ' + str(np.sum(m)) + ' = ' + str(m) + ' <= ' + str(a) + ' Succese!'
+        msg = 'dice: ' + str(np.sum(m)) + ' = ' + str(m) + ' <= ' + str(a) + ' Success!'
     elif m > a:
         if a >= 50:
             if a < m <= 99:
@@ -65,7 +65,7 @@ def bp(m, a, M):
     elif (a/5) < m <= (a/2):
         msg = 'dice: ' + str(M) + ' = ' + str(m) + ' <= ' + str(a) + ' Hard!!'
     elif (a/2) < m <= a:
-        msg = 'dice: ' + str(M) + ' = ' + str(m) + ' <= ' + str(a) + ' Succese!'
+        msg = 'dice: ' + str(M) + ' = ' + str(m) + ' <= ' + str(a) + ' Success!'
     elif m > a:
         if a >= 50:
             if a < m <= 99:
@@ -186,7 +186,7 @@ async def on_message(message):
             if info[0].isdecimal():
                 m = simple_dice(100, 1)
                 if int(m) > int(info[0]):
-                    msg = 'dice: ' + str(np.sum(m)) + ' = ' + str(m) + ' > ' + str(info[0]) + ' Succese!'
+                    msg = 'dice: ' + str(np.sum(m)) + ' = ' + str(m) + ' > ' + str(info[0]) + ' Success!'
                 elif int(m) <= int(info[0]):
                     msg = 'dice: ' + str(np.sum(m)) + ' = ' + str(m) + ' <= ' + str(info[0]) + ' Failure.' 
                 #msg = 'dice: ' + str(np.sum(m)) + ' = ' + str(m) + ' <= ' + str(info[0]) + ' Succese!'
