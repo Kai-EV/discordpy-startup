@@ -78,7 +78,6 @@ def bp(m, a, M):
                 msg = 'dice: ' + str(M) + ' = ' + str(m) + ' > ' + str(a) + ' Fanble...'
     return msg
 
-
 # メッセージ受信時に動作する処理
 @client.event
 async def on_message(message):
