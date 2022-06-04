@@ -17,8 +17,7 @@ token = os.environ['DISCORD_BOT_TOKEN']
 
 # @bot.command() 
 # async def ping(ctx):
-#     await ctx.send('pong')
-    
+#     await ctx.send('pong') 
    
 # @bot.command() 
 # async def neko(ctx):
