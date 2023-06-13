@@ -4,7 +4,7 @@ import numpy as np
 import os
 import traceback
 from parse import parse
- 
+
 client = discord.Client()
 bot = commands.Bot(command_prefix='/')
 token = os.environ['DISCORD_BOT_TOKEN']
